@@ -11,15 +11,19 @@ const RecipieCard = () => {
 
     const [isOpen, setIsOpen] = useState(false)
     const [isEditOpen, setEditOpen] = useState(false)
+
+    function onClose() {
+        setEditOpen(false)
+    }
     return (
         <div className='w-full h-[400px]  flex justify-center items-center  gap-5'>
             {
                 recipes.map((item) =>
-                    <div className="list w-[20%] min-h-[60%] rounded-md  flex flex-col justify-center p-2 gap-3 items-start shadow-lg" onClick={() => setEditOpen(!isEditOpen)} >
+                    <div className="list w-[20%] min-h-[60%] rounded-md  flex flex-col justify-center p-2 gap-3 items-start shadow-lg"  >
                         <div className="efit w-[100%] flex justify-end items-end gap-2">
 
                             {
-                                isEditOpen && <EditModal />
+                                isEditOpen && <EditModal onClose={onClose} />
                             }
                             <div className="edit-res" onClick={() => setEditOpen(!isEditOpen)}>
                                 <EditIcon className='cursor-pointer text-gray-800' />

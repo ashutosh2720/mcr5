@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const EditModal = ({ recipeToEdit, onUpdateRecipe, onClose }) => {
+const EditModal = ({ onClose, recipeToEdit, onUpdateRecipe }) => {
     const [recipe, setRecipe] = useState({ ...recipeToEdit });
 
     useEffect(() => {
@@ -89,6 +89,7 @@ const EditModal = ({ recipeToEdit, onUpdateRecipe, onClose }) => {
                         </button>
                         <button
                             type="submit"
+                            onClick={onClose}
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                         >
                             Update Recipe
