@@ -1,55 +1,53 @@
-import React, { useState } from 'react'
-import { recipes } from './recipieList'
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import Modal from './Modal';
-import EditModal from './EditModal';
+import React, { useState } from "react";
+import { recipes } from "./recipieList";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import Modal from "./Modal";
+import EditModal from "./EditModal";
 
+import { useNavigate } from "react-router-dom";
 
-const RecipieCard = () => {
-
-    const [isOpen, setIsOpen] = useState(false)
-    const [isEditOpen, setEditOpen] = useState(false)
+const RecipieCard = ({ recipe }) => {
+    const navigate = useNavigate();
+    const [isEditOpen, setEditOpen] = useState(false);
 
     function onClose() {
-        setEditOpen(false)
+        setEditOpen(false);
     }
     return (
-        <div className='w-full h-[400px]  flex justify-center items-center  gap-5'>
-            {
-                recipes.map((item) =>
-                    <div className="list w-[20%] min-h-[60%] rounded-md  flex flex-col justify-center p-2 gap-3 items-start shadow-lg"  >
-                        <div className="efit w-[100%] flex justify-end items-end gap-2">
-
-                            {
-                                isEditOpen && <EditModal onClose={onClose} />
-                            }
-                            <div className="edit-res" onClick={() => setEditOpen(!isEditOpen)}>
-                                <EditIcon className='cursor-pointer text-gray-800' />
-                            </div>
-                            <DeleteIcon className='cursor-pointer text-gray-800' />
-                        </div>
-                        <img src={item.mediaUrl} alt="" className='w-[100%] h-[50%] rounded-md' />
-                        <h1 className='text-xl font-bold'>{item.recipeName}</h1>
-                        <h1 className=' font-bold flex'> cusine type ---  {item.cuisineType}</h1>
-                        <h1 className=' font-bold flex'>ingredients ---- <h1 className='cursor-pointer'>See recipie</h1> &gt; </h1>
-                        <h1 className=' font-bold flex'>Instructions ----  <h1 className='cursor-pointer'>See recipie</h1> &gt; </h1>
-
-                    </div>
-                )
-            }
-
-            <div className="add">
-                <div className="add" onClick={() => setIsOpen(!isOpen)}>
-                    <AddCircleOutlineIcon fontSize='large' className='font-bold cursor-pointer' />
-                    {
-                        isOpen && <Modal />
-                    }
+        <div
+            className={"recipe-card w-60 p-2 shadow shadow-black/40 rounded relative"}
+        >
+            <div className="edit-delete-icon absolute flex gap-2 text-2xl bg-white right-0">
+                <div className="edit cursor-pointer" onClick={() => setEditOpen(true)}>
+                    <EditIcon />
+                    {isEditOpen && <EditModal onClose={onClose} />}
+                </div>
+                <div className="delete">
+                    <DeleteIcon />
                 </div>
             </div>
+            <img
+                src={recipe.mediaUrl}
+                alt="recipe-img"
+                className={"w-full aspect-square rounded cursor-pointer"}
+                onClick={() => navigate(`/recipe-detail/${recipe.id}`)}
+            />
+            <h1 className={"text-lg font-bold line-clamp-1"}>{recipe.recipeName}</h1>
+            <p className={"w-full flex justify-between pr-6"}>
+                <b>Cuisine Type:</b> {recipe.cuisineType}
+            </p>
+            <p className={"w-full flex justify-between"}>
+                <b>Ingredients: </b>{" "}
+                <span className={"cursor-pointer"}>See Recipe &gt; </span>
+            </p>
+            <p className={"w-full flex justify-between"}>
+                <b>Instructions: </b>{" "}
+                <span className={"cursor-pointer"}>See Recipe &gt; </span>
+            </p>
         </div>
-    )
-}
+    );
+};
 
-export default RecipieCard
+export default RecipieCard;

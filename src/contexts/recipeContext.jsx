@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { recipes } from "../components/recipieList.js";
+import { recipes } from '../components/recipieList'
 import { v4 as uuid } from "uuid";
 
 const recipeContext = createContext()
@@ -12,6 +12,7 @@ const RecipeProvider = ({ children }) => {
         cuisineType: '',
         mediaUrl: ''
     })
+    const [searchInput, setSearchInput] = useState('');
     const [allRecipes, setAllRecipes] = useState(recipes);
 
     useEffect(() => {
@@ -39,8 +40,15 @@ const RecipeProvider = ({ children }) => {
         setAllRecipes(prevState => [...prevState, { id: uuid(), ...recipe }])
     }
 
+    const deleteRecipe = (recipeId) => {
+        setAllRecipes(prevState => prevState.filter(recipe => recipe.id !== recipeId))
+    }
+
+    const filteredData = allRecipes.filter(recipe => recipe.recipeName.toUpperCase().includes(searchInput.toUpperCase()))
+
+
     return (
-        <recipeContext.Provider value={{ allRecipes, recipeDetails, inputChangeHandler, addRecipe, inputData }}>
+        <recipeContext.Provider value={{ allRecipes, recipeDetails, inputChangeHandler, addRecipe, inputData, setInputData, deleteRecipe, searchInput, setSearchInput, filteredData }}>
             {children}
         </recipeContext.Provider>
     )

@@ -1,6 +1,5 @@
-const RecipeDetailsCard = ({ recipe }) => {
+const RecipeDetailsCard = () => {
 
-    const { mediaUrl, cuisineType, ingredients, cookingInstructions } = recipe;
 
     return (
         <div className={'flex flex-col lg:flex-row gap-4 shadow shadow-black/40 w-full lg:w-[80%] p-2 rounded'}>

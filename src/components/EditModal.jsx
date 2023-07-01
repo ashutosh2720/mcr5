@@ -21,7 +21,7 @@ const EditModal = ({ onClose, recipeToEdit, onUpdateRecipe }) => {
     };
 
     return (
-        <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-opacity-75 bg-gray-900">
+        <div className="fixed  bg-white z-10 top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-opacity-75 bg-gray-900">
             <div className="bg-white p-6 rounded shadow-lg">
                 <h2 className="text-2xl font-bold mb-4">Edit Recipe</h2>
                 <form onSubmit={handleSubmit}>
