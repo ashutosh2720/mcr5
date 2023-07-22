@@ -27,7 +27,7 @@ export const recipes = [
             "Serve the Spicy Thai Basil Chicken Stir-Fry over steamed rice or noodles."
         ],
         cuisineType: "Thai",
-        mediaUrl: "https://static.toiimg.com/thumb/53314156.cms?imgsize=1762111&width=800&height=800"
+        mediaUrl: "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/12/Shakshuka-19.jpg"
     },
     {
         id: 2,
@@ -52,7 +52,7 @@ export const recipes = [
             "Slice and serve the Classic Margherita Pizza hot."
         ],
         cuisineType: "Italian",
-        mediaUrl: "https://www.chefkunalkapur.com/wp-content/uploads/2021/11/3F3A1876-copy-1300x867.jpg?v=1636356843"
+        mediaUrl: "https://www.indianhealthyrecipes.com/wp-content/uploads/2023/04/butter-chicken-recipe.jpg"
     },
     {
         id: 3,
@@ -82,7 +82,7 @@ export const recipes = [
             "Serve the Spicy Thai Basil Chicken Stir-Fry over steamed rice or noodles."
         ],
         cuisineType: "Thai",
-        mediaUrl: "https://static.toiimg.com/thumb/53314156.cms?imgsize=1762111&width=800&height=800"
+        mediaUrl: "https://www.indianhealthyrecipes.com/wp-content/uploads/2023/04/butter-chicken-recipe.jpg"
     },
     {
         id: 4,
@@ -107,6 +107,6 @@ export const recipes = [
             "Slice and serve the Classic Margherita Pizza hot."
         ],
         cuisineType: "Italian",
-        mediaUrl: "https://www.chefkunalkapur.com/wp-content/uploads/2021/11/3F3A1876-copy-1300x867.jpg?v=1636356843"
+        mediaUrl: "https://i0.wp.com/www.onceuponachef.com/images/2019/09/Spaghetti-and-Meatballs.jpg?resize=760%2C984&ssl=1"
     },
 ];
